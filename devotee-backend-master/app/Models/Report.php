@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Report extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'denounced_user_id',
+        'description',
+        'type',
+    ];
+
+    public $timestamps = false;
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function denounced_user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+
+}

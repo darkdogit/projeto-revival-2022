@@ -1,0 +1,101 @@
+{
+  "expo": {
+    "scheme": "devotee",
+    "name": "Devotee",
+    "slug": "devotee",
+    "version": "4.5.14",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2E4664"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "usesAppleSignIn": true,
+      "bundleIdentifier": "com.phurshell.Devotee",
+      "buildNumber": "128",
+      "infoPlist": {
+        "NSLocationAlwaysUsageDescription": "Precisamos da sua localização para encontrar pessoas perto de você",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Precisamos da sua localização para encontrar pessoas perto de você",
+        "NSLocationWhenInUseUsageDescription": "Precisamos da sua localização para encontrar pessoas perto de você",
+        "NSCameraUsageDescription": "Precisamos acessar sua câmera para que você tire suas fotos de perfil",
+        "NSPhotoLibraryUsageDescription": "Precisamos acessar sua galeria para que você selecione suas fotos de perfil",
+        "NSMicrophoneUsageDescription": "Precisamos de sua permissão ao uso do microfone para você poder gravar o áudio",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        },
+        "CFBundleShortVersionString": "4.5.14",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bitcode": "Debug",
+      "entitlements": {
+        "com.apple.developer.applesignin": [
+          "Default"
+        ]
+      }
+    },
+    "android": {
+      "versionCode": 128,
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "RECORD_AUDIO",
+        "com.google.android.gms.permission.AD_ID",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.phurshell.devotee"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "76dd6fec-5b79-40b2-b769-ddf3b0efe358"
+      }
+    },
+    "plugins": [
+      "expo-apple-authentication",
+      "expo-font",
+      "expo-localization",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          },
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "34.0.0"
+          }
+        }
+      ],
+      "react-native-iap"
+    ]
+  },
+  "react-native-google-mobile-ads": {
+    "ios_app_id": "ca-app-pub-4813221246235159~2356973326",
+    "android_app_id": "ca-app-pub-4813221246235159~9286397387"
+  }
+}

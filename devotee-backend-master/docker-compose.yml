@@ -1,0 +1,20 @@
+
+services:
+  webserver:
+    image: thecodingmachine/php:8.1.11-v4-apache-node12
+    container_name: devotee
+    working_dir: /var/www/html
+    environment:
+      PHP_EXTENSIONS: apcu pdo_mysql opcache redis zip gd yaml exif xdebug
+      PHP_EXTENSION_GD: 1
+      PHP_EXTENSION_MYSQLI: 1
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+      PHP_EXTENSION_XDEBUG: 1
+    volumes:
+      - ./:/var/www/html
+      - ~/.ssh:/root/.ssh
+
+    stdin_open: true
+    tty: true
+    ports:
+      - "8007:80"

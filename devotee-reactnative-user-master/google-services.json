@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "670097540184",
+    "firebase_url": "https://devotee-38099.firebaseio.com",
+    "project_id": "devotee-38099",
+    "storage_bucket": "devotee-38099.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670097540184:android:ac8d3aa43dd49ebb",
+        "android_client_info": {
+          "package_name": "com.phurshell.devotee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670097540184-mhv8o19kikjq8j2p87sfrron5hj8vl12.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phurshell.devotee",
+            "certificate_hash": "8542ccf2acc18ad0ff235a7bd657c77d135f5843"
+          }
+        },
+        {
+          "client_id": "670097540184-3liid93hjkcib38idqtrnvrgfa6drm69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3FoXLpdboaTaW8FAEUnj5rTsVnwwf9Jg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670097540184-3liid93hjkcib38idqtrnvrgfa6drm69.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "670097540184-rfdo8biok31qt3kg8r1j4n6aae5tv45t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.phurshell.Devotee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
