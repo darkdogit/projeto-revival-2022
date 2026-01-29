@@ -20,7 +20,7 @@ class CreateMyCidsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('cid_id');
-            $table->foreign('cid_id')->references('id')->on('cid')->onDelete('cascade');
+            //$table->foreign('cid_id')->references('id')->on('cid')->onDelete('cascade');
 
             
             $table->timestamps();

@@ -17,10 +17,10 @@ class CreateMyHospitalsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('hospital_id');
-            $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
+            //$table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
 
             $table->timestamps();
         });

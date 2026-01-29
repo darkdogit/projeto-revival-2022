@@ -43,9 +43,10 @@ export class NetworkService {
         //TODO: endpoint ta errado, pegar o certo com o paulinho
         resetDislikes: 'api/reset-dislikes'
     }
-    constructor() {
+constructor() {
         this.session = new SessionService()
-        this.baseUrl = environment.baseUrl
+        // this.baseUrl = environment.baseUrl  <-- Comentamos a linha antiga
+        this.baseUrl = 'http://localhost:8000/' // <-- Adicione esta linha NOVA
     }
 
     makeItMultipartParams(params) {

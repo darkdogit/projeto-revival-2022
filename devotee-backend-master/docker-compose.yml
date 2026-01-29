@@ -1,20 +1,59 @@
+version: '3'
 
 services:
+  # 1. O SERVIDOR WEB (Onde roda o Laravel/PHP)
   webserver:
-    image: thecodingmachine/php:8.1.11-v4-apache-node12
-    container_name: devotee
+    # Usa uma imagem pronta configurada para Laravel (evita erros de configuração manual)
+    image: thecodingmachine/php:8.1-v4-apache
+    container_name: devotee_app
+    restart: unless-stopped
     working_dir: /var/www/html
-    environment:
-      PHP_EXTENSIONS: apcu pdo_mysql opcache redis zip gd yaml exif xdebug
-      PHP_EXTENSION_GD: 1
-      PHP_EXTENSION_MYSQLI: 1
-      APACHE_DOCUMENT_ROOT: /var/www/html/public
-      PHP_EXTENSION_XDEBUG: 1
     volumes:
-      - ./:/var/www/html
-      - ~/.ssh:/root/.ssh
-
-    stdin_open: true
-    tty: true
+      - ./:/var/www/html # Conecta sua pasta do Windows direto no Docker
     ports:
-      - "8007:80"
+      - "8000:80" # Você vai acessar o site por http://localhost:8000
+    environment:
+      APACHE_DOCUMENT_ROOT: public
+      PHP_EXTENSION_GD: 1
+      PHP_EXTENSION_PDO_MYSQL: 1
+      PHP_EXTENSION_BCMATH: 1
+      PHP_EXTENSION_SOCKETS: 1
+      PHP_EXTENSION_REDIS: 1
+      PHP_EXTENSION_ZIP: 1
+      # Configurações para produção/teste
+      PHP_INI_MEMORY_LIMIT: 512M
+    networks:
+      - app-network
+
+  # 2. O BANCO DE DADOS (MySQL)
+  db:
+    image: mysql:5.7 # Versão 5.7 é mais compatível com códigos de 2021/2022
+    container_name: devotee_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: laravel      # Nome do banco que será criado
+      MYSQL_ROOT_PASSWORD: root    # Senha mestra
+      MYSQL_PASSWORD: root         # Senha do usuário
+      MYSQL_USER: user             # Usuário
+    ports:
+      - "3306:3306" # Deixa a porta aberta se você quiser usar um programa visual de banco
+    volumes:
+      - dbdata:/var/lib/mysql # Salva os dados numa pasta oculta para não perder quando reiniciar
+    networks:
+      - app-network
+
+  # 3. REDIS (Para o Chat funcionar rápido)
+  redis:
+    image: redis:alpine
+    container_name: devotee_redis
+    networks:
+      - app-network
+
+# Configuração da rede interna (os cabos virtuais)
+networks:
+  app-network:
+    driver: bridge
+
+# Configuração do disco virtual
+volumes:
+  dbdata:

@@ -20,7 +20,7 @@ class CreateMyMedicalProceduresTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('medical_procedures_id');
-            $table->foreign('medical_procedures_id')->references('id')->on('medical_procedures')->onDelete('cascade');
+            //$table->foreign('medical_procedures_id')->references('id')->on('medical_procedures')->onDelete('cascade');
 
             
             $table->timestamps();

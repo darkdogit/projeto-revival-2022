@@ -184,8 +184,13 @@ export default function App() {
   // const l = new AppLocalization()
   // l.start()
 
+  // --- CORREÇÃO AQUI ---
+  // Carregamos a imagem para passar ao componente de Splash
+  const splashImage = require('./assets/splash.png'); 
+
   return (
-    <PhSplashScreen>
+    // Passamos a propriedade image={splashImage} para destravar o carregamento
+    <PhSplashScreen image={splashImage}>
       <Provider store={ store } >
         <PersistGate loading={ null } persistor={ persistor } >
           <MainContainer />
@@ -195,4 +200,3 @@ export default function App() {
   )
 
 }
-
